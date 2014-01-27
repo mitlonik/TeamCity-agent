@@ -22,7 +22,7 @@ ADD buildAgent buildAgent
 
 ADD start_agent.sh /start_agent.sh
 
-
+RUN "ls -l"
 CMD ["-c", "/etc/supervisor/supervisor.conf" ]
 ENTRYPOINT ["/usr/bin/supervisord"]
 
