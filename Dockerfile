@@ -22,7 +22,6 @@ ADD buildAgent buildAgent
 
 ADD start_agent.sh /start_agent.sh
 
-EXPOSE 9000
 
 CMD ["-c", "/etc/supervisor/supervisor.conf"]
 ENTRYPOINT ["/usr/bin/supervisord"]
@@ -34,3 +33,5 @@ ADD ./wrapdocker /usr/local/bin/wrapdocker
 RUN chmod +x /usr/local/bin/docker /usr/local/bin/wrapdocker
 VOLUME /var/lib/docker
 RUN echo "docker=0.7.5" >> buildAgent/conf/buildAgent.properties
+
+EXPOSE 9000
