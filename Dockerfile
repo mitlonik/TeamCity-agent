@@ -11,10 +11,18 @@ RUN apt-get update
 RUN apt-get install -y wget openjdk-7-jre-headless:i386
 RUN update-java-alternatives -s java-1.7.0-openjdk-i386
 
+#supervisor
+#supervisor
+RUN apt-get install -y supervisor
+RUN mkdir -p /var/log/supervisor
+ADD supervisord.conf /etc/supervisor/supervisor.conf
+RUN apt-get install -y python-pip && pip install supervisor-stdout
+
 ADD buildAgent buildAgent
 
 ADD start_agent.sh /start_agent.sh
 
 EXPOSE 9000
 
-ENTRYPOINT ["/bin/bash","/start_agent.sh"]
+CMD ["-c", "/etc/supervisor/supervisor.conf"]
+ENTRYPOINT ["/usr/bin/supervisord"]
