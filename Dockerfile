@@ -33,5 +33,5 @@ ADD https://get.docker.io/builds/Linux/x86_64/docker-latest /usr/local/bin/docke
 RUN chmod +x /usr/local/bin/docker
 VOLUME /var/lib/docker
 ADD dockerprep.sh /dockerprep.sh
-RUN bash /dockerprep.sh
+RUN sudo bash /dockerprep.sh
 RUN echo "docker=$(docker version | head -n 1 | sed 's/.*: //')" >> buildAgent/bin/conf/buildAgent.properties

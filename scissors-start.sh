@@ -10,7 +10,7 @@ fi
 mkdir -p ../config
 ABSPATH=$(pwd)/../config
 
-docker run $EXTRA_ARGS -p 9000 -v $ABSPATH:/config -d $IMAGE_NAME
+docker run $EXTRA_ARGS -privileged -p 9000 -v $ABSPATH:/config -d $IMAGE_NAME
 CONTAINER=$(cat ../CONTAINER_ID)
 
 # we have to work around https://github.com/dotcloud/docker/issues/3778
