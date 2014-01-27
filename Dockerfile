@@ -33,4 +33,4 @@ ADD https://get.docker.io/builds/Linux/x86_64/docker-latest /usr/local/bin/docke
 RUN chmod +x /usr/local/bin/docker
 VOLUME /var/lib/docker
 ADD dockerprep.sh /dockerprep.sh
-RUN echo "docker=0.7.5" >> buildAgent/bin/conf/buildAgent.properties
+RUN echo "docker=0.7.5" >> buildAgent/conf/buildAgent.properties
