@@ -1,4 +1,5 @@
 #!/bin/bash
+bash /dockerprep.sh
 while true
 do
 	echo "Waiting for port..."

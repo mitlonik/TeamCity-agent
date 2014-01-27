@@ -26,3 +26,11 @@ EXPOSE 9000
 
 CMD ["-c", "/etc/supervisor/supervisor.conf"]
 ENTRYPOINT ["/usr/bin/supervisord"]
+
+#sup dawg
+RUN apt-get install -qqy iptables ca-certificates lxc
+ADD https://get.docker.io/builds/Linux/x86_64/docker-latest /usr/local/bin/docker
+ADD ./wrapdocker /usr/local/bin/wrapdocker
+RUN chmod +x /usr/local/bin/docker /usr/local/bin/wrapdocker
+VOLUME /var/lib/docker
+add dockerprep.sh
