@@ -30,7 +30,7 @@ ENTRYPOINT ["/usr/bin/supervisord"]
 #sup dawg
 RUN apt-get install -qqy iptables ca-certificates lxc
 ADD https://get.docker.io/builds/Linux/x86_64/docker-latest /usr/local/bin/docker
-RUN chmod +x /usr/local/bin/docker
+ADD ./wrapdocker /usr/local/bin/wrapdocker
+RUN chmod +x /usr/local/bin/docker /usr/local/bin/wrapdocker
 VOLUME /var/lib/docker
-ADD dockerprep.sh /dockerprep.sh
 RUN echo "docker=0.7.5" >> buildAgent/conf/buildAgent.properties
